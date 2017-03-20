@@ -76,6 +76,7 @@
    
     CordovaHttpPlugin* __weak weakSelf = self;
     manager.responseSerializer = [TextResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = nil;
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         [self setResults: dictionary withTask: task];
@@ -103,6 +104,7 @@
     CordovaHttpPlugin* __weak weakSelf = self;
    
     manager.responseSerializer = [TextResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = nil;
     [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         [self setResults: dictionary withTask: task];
